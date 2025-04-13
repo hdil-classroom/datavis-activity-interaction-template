@@ -67,12 +67,11 @@ function App() {
 							{items.map((item) => {						
 								return (
 									<g key={item.rank}
-										className="datapoint">
-										<circle
-											cx={x(item.screen_count)}
-											cy={y(item.audience_count)}
-											r="3"
-
+										className="datapoint"
+										transform={`translate(${
+												x(item.screen_count)}, ${
+												y(item.audience_count)})`}>
+										<circle cx="0" cy="0" r="3"
 										/>
 									</g>
 								);
