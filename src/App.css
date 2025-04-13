@@ -1,0 +1,41 @@
+body {
+	font-family: Helvetica, Arial, sans-serif;
+	margin: 0;
+}
+
+#header {
+	border-bottom: 1px solid #cccccc;
+	padding: 0 20px;
+}
+
+#main {
+	display: flex;
+	justify-content: space-between;
+	gap: 30px;
+}
+
+#selected-item-information {
+	background-color: #f3f3f3;
+	padding: 20px;
+	flex-grow: 1;
+}
+
+#visualization {
+	width: 650px;
+}
+
+.axis line,
+.axis path {
+	fill: none;
+	stroke: #aaaaaa;
+	stroke-width: 1;
+}
+
+.axis text {
+	fill: #555555;
+}
+
+.datapoint circle {
+	cursor: pointer;
+	fill: green;
+}
