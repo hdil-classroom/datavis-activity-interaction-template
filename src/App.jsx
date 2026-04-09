@@ -15,8 +15,12 @@ function App() {
 				// Print data into console for debugging.
 				console.log(jsonData);
 
+				// Filter data to only include top 500 movies.
+				const filteredData = jsonData.filter(item => item.rank <= 500);
+				console.log(filteredData);
+
 				// Save filtered data items to state.
-				setItems(jsonData);
+				setItems(filteredData);
 			})
 			.catch((error) => {
 				console.error('Error loading JSON file:', error);
@@ -33,10 +37,10 @@ function App() {
 
 	// Set scales.
 	const x = d3.scaleLinear()
-		.domain([0, d3.max(items.map(item => item.screen_count))])
+		.domain([0, d3.max(items.map(item => item.screens_total))])
 		.range([marginLeft, width - marginRight]);
 	const y = d3.scaleLinear()
-		.domain([0, d3.max(items.map(item => item.audience_count))])
+		.domain([0, d3.max(items.map(item => item.audience_total))])
 		.range([height - marginBottom, marginTop]);
 
 	// Set axes.
@@ -69,8 +73,8 @@ function App() {
 									<g key={item.rank}
 										className="datapoint"
 										transform={`translate(${
-												x(item.screen_count)}, ${
-												y(item.audience_count)})`}>
+												x(item.screens_total)}, ${
+												y(item.audience_total)})`}>
 										<circle cx="0" cy="0" r="3"
 										/>
 									</g>
